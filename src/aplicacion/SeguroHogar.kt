@@ -4,15 +4,18 @@ class SeguroHogar(numPoliza: Int, dniTitular: String, val metrosCuadrados: Int, 
     init {
         require(numPoliza > 100000)
     }
+
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
-        TODO("Not yet implemented")
+        var importeHogar : Double = obtenerImporte()
+        importeHogar *= interes
+        return importeHogar
     }
 
     override fun tipoSeguro(): String {
-        TODO("Not yet implemented")
+        return "Seguro Hogar"
     }
 
     override fun serializar(): String {
-        TODO("Not yet implemented")
+        return "$numPoliza,$dniTitular,${calcularImporteAnioSiguiente(interes = 0.0)},$metrosCuadrados,$valorContenido,$direccion,${tipoSeguro()}"
     }
 }

@@ -16,4 +16,6 @@ abstract class Seguro(val numPoliza: Int, val dniTitular: String) {
     abstract fun calcularImporteAnioSiguiente(interes: Double): Double
     abstract fun tipoSeguro(): String
     abstract fun serializar(): String //Convierte el objeto a formato TXT
+
+    fun obtenerImporte() = importe
 }

@@ -1,20 +1,22 @@
 package src.aplicacion
 
-class SeguroVida(numPoliza: Int, dniTitular: String, val fechaNac: String, nivelRiesgo: Nivel, val indemnizacion: Double ) : Seguro(numPoliza,dniTitular) {
+class SeguroVida(numPoliza: Int, dniTitular: String, val fechaNac: String, val nivelRiesgo: Nivel, val indemnizacion: Double ) : Seguro(numPoliza,dniTitular) {
 
     init {
         require(numPoliza > 800000)
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
-        TODO("Not yet implemented")
+        var importeVida : Double = obtenerImporte()
+        importeVida *= interes
+        return importeVida
     }
 
     override fun tipoSeguro(): String {
-        TODO("Not yet implemented")
+        return "Seguro Vida"
     }
 
     override fun serializar(): String {
-        TODO("Not yet implemented")
+        return "$numPoliza,$dniTitular,${calcularImporteAnioSiguiente(0.0)},$fechaNac,$nivelRiesgo, $indemnizacion, ${tipoSeguro()}"
     }
 }

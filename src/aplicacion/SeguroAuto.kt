@@ -7,14 +7,16 @@ class SeguroAuto(numPoliza: Int, dniTitular: String,val descripcion: String, val
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
-        TODO("Not yet implemented")
+        var importeAuto : Double = obtenerImporte()
+        importeAuto *= interes
+        return importeAuto
     }
 
     override fun tipoSeguro(): String {
-        TODO("Not yet implemented")
+        return "Seguro Auto"
     }
 
     override fun serializar(): String {
-        TODO("Not yet implemented")
+        return "$numPoliza,$dniTitular,${calcularImporteAnioSiguiente(0.0)},$descripcion,$combustible,$tipoAuto,$tipoCobertura,$asistenciaCarretera,$numPartes,${tipoSeguro()}"
     }
 }
