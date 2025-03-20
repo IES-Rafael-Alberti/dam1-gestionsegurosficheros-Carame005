@@ -16,6 +16,6 @@ class SeguroHogar(numPoliza: Int, dniTitular: String, val metrosCuadrados: Int, 
     }
 
     override fun serializar(): String {
-        return "$numPoliza,$dniTitular,${calcularImporteAnioSiguiente(interes = 0.0)},$metrosCuadrados,$valorContenido,$direccion,${tipoSeguro()}"
+        return "$numPoliza;$dniTitular;${calcularImporteAnioSiguiente(interes = 0.0)};$metrosCuadrados;$valorContenido;$direccion;${tipoSeguro()}"
     }
 }

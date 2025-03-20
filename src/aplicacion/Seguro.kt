@@ -3,7 +3,7 @@ package src.aplicacion
 abstract class Seguro(val numPoliza: Int, val dniTitular: String) {
 
     init{
-        require(validarDni(dniTitular)){throw IllegalArgumentException("Ingrese un DNI válido") }
+        require(validarDni(dniTitular)){throw IllegalArgumentException("DNI inválido. Inténtelo nuevamente o escriba 'CANCELAR' para salir.")}
     }
 
     companion object {

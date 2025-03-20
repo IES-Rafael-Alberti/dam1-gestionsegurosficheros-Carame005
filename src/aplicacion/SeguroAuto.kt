@@ -17,6 +17,6 @@ class SeguroAuto(numPoliza: Int, dniTitular: String,val descripcion: String, val
     }
 
     override fun serializar(): String {
-        return "$numPoliza,$dniTitular,${calcularImporteAnioSiguiente(0.0)},$descripcion,$combustible,$tipoAuto,$tipoCobertura,$asistenciaCarretera,$numPartes,${tipoSeguro()}"
+        return "$numPoliza;$dniTitular;${calcularImporteAnioSiguiente(0.0)};$descripcion;$combustible;$tipoAuto;$tipoCobertura;$asistenciaCarretera;$numPartes;${tipoSeguro()}"
     }
 }

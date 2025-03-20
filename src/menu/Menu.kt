@@ -1,4 +1,5 @@
 package src.menu
 
-class Menu {
+interface Menu {
+    fun mostrarMenu()
 }
