@@ -1,5 +1,5 @@
 package src.menu
 
-interface Menu {
+interface IMenu {
     fun mostrarMenu()
 }

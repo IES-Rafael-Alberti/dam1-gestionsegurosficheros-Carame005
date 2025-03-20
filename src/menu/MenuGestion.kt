@@ -2,7 +2,7 @@ package src.menu
 
 import src.utils.Utilidades
 
-class MenuGestion : Menu {
+class MenuGestion : IMenu {
     override fun mostrarMenu() {
         println("1. Seguros")
         println("2. Salir")

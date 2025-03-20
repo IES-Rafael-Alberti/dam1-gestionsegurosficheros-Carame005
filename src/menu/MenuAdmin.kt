@@ -1,7 +1,7 @@
 package src.menu
 import src.utils.Utilidades
-import src.servicios.SeguroService
-class MenuAdmin : Menu {
+
+class MenuAdmin : IMenu {
     override fun mostrarMenu() {
         println("1. Usuarios")
         println("2. Seguros")
