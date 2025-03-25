@@ -1,4 +1,4 @@
-package src.app
+package src.model
 
 class SeguroAuto(numPoliza: Int, dniTitular: String,importe : Double,val descripcion: String, val combustible: String, val tipoAuto : Tipo, val tipoCobertura: String, val asistenciaCarretera: Boolean, val numPartes: Int) : Seguro(numPoliza,dniTitular,importe) {
 

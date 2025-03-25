@@ -1,6 +1,4 @@
-package src.app
-
-import src.model.Riesgo
+package src.model
 
 class SeguroVida(numPoliza: Int, dniTitular: String, importe : Double, val fechaNac: String, val nivelRiesgo: Riesgo, val indemnizacion: Double ) : Seguro(numPoliza,dniTitular,importe) {
 

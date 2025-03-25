@@ -1,6 +1,6 @@
 package src
-import src.app.SeguroHogar
-import src.app.SeguroAuto
+import src.model.SeguroHogar
+import src.model.SeguroAuto
 import src.data.RepositorioSegurosFicheros
 
 fun main() {
