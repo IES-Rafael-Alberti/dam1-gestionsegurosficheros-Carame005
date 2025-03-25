@@ -1,5 +1,5 @@
 package src.data
-import src.aplicacion.Seguro
+import src.app.Seguro
 class RepositorioSegurosFicheros(private val archivo: String, private val mapaSeguros: Map<String, (List<String>) -> Seguro>) : IRepositorioSegurosFicheros {
 
     // Guardar un seguro en el fichero

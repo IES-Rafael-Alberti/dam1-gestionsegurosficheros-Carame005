@@ -1,6 +1,6 @@
-package src.aplicacion
+package src.app
 
-abstract class Seguro(val numPoliza: Int, val dniTitular: String) {
+abstract class Seguro(val numPoliza: Int, val dniTitular: String,private val importe: Double) {
 
     init{
         require(validarDni(dniTitular)){throw IllegalArgumentException("DNI inválido. Inténtelo nuevamente o escriba 'CANCELAR' para salir.")}
@@ -12,7 +12,6 @@ abstract class Seguro(val numPoliza: Int, val dniTitular: String) {
         }
     }
 
-    private val importe: Double = TODO()
     abstract fun calcularImporteAnioSiguiente(interes: Double): Double
     abstract fun tipoSeguro(): String
     abstract fun serializar(): String //Convierte el objeto a formato TXT

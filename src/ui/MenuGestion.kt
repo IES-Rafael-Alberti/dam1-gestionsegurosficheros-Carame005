@@ -1,20 +1,14 @@
-package src.menu
+package src.ui
+
 import src.utils.Utilidades
 
-class MenuAdmin : IMenu {
+class MenuGestion : IMenu {
     override fun mostrarMenu() {
-        println("1. Usuarios")
-        println("2. Seguros")
-        println("3. Salir")
+        println("1. Seguros")
+        println("2. Salir")
         var opcion = Utilidades.pedirNumero("Elije una opcion")
         when(opcion){
             1->{
-                println("1.Nuevo")
-                println("2.Eliminar")
-                println("3.Cambiar contraseña")
-                opcion = Utilidades.pedirNumero("Elije una opcion")
-            }
-            2->{
                 println("1.Contratar")
                 println("2.Eliminar")
                 println("3.Consultar")
@@ -38,7 +32,7 @@ class MenuAdmin : IMenu {
                     }
                 }
             }
-            3->{
+            2->{
                 return
             }
         }

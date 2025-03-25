@@ -1,6 +1,8 @@
-package src.aplicacion
+package src.app
 
-class SeguroVida(numPoliza: Int, dniTitular: String, val fechaNac: String, val nivelRiesgo: Nivel, val indemnizacion: Double ) : Seguro(numPoliza,dniTitular) {
+import src.model.Riesgo
+
+class SeguroVida(numPoliza: Int, dniTitular: String, importe : Double, val fechaNac: String, val nivelRiesgo: Riesgo, val indemnizacion: Double ) : Seguro(numPoliza,dniTitular,importe) {
 
     init {
         require(numPoliza > 800000)

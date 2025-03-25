@@ -1,6 +1,6 @@
-package src.aplicacion
+package src.app
 
-class SeguroHogar(numPoliza: Int, dniTitular: String, val metrosCuadrados: Int, val valorContenido: Double, val direccion: String) : Seguro(numPoliza,dniTitular) {
+class SeguroHogar(numPoliza: Int, dniTitular: String,importe : Double, val metrosCuadrados: Int, val valorContenido: Double, val direccion: String) : Seguro(numPoliza,dniTitular,importe) {
     init {
         require(numPoliza > 100000)
     }

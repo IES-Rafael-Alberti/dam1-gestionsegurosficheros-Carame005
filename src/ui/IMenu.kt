@@ -1,4 +1,4 @@
-package src.menu
+package src.ui
 
 interface IMenu {
     fun mostrarMenu()

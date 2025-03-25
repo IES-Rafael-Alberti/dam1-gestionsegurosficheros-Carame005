@@ -1,4 +1,4 @@
-package src.servicios
+package src.service
 
 interface ISeguroService {
 }
