@@ -8,7 +8,7 @@ class SeguroVida(numPoliza: Int, dniTitular: String, importe : Double, val fecha
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
-        var importeVida : Double = obtenerImporte()
+        var importeVida : Double = importe
         importeVida *= interes
         return importeVida
     }

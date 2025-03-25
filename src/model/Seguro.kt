@@ -1,6 +1,6 @@
 package src.model
 
-abstract class Seguro(val numPoliza: Int, val dniTitular: String,private val importe: Double): IExportable {
+abstract class Seguro(public val numPoliza: Int, private val dniTitular: String,protected val importe: Double): IExportable {
 
     init{
         require(validarDni(dniTitular)){throw IllegalArgumentException("DNI inválido. Inténtelo nuevamente o escriba 'CANCELAR' para salir.")}
@@ -22,7 +22,7 @@ abstract class Seguro(val numPoliza: Int, val dniTitular: String,private val imp
     }
 
     override fun toString(): String {
-        return super.toString()
+        return "${this::class.simpleName}(numPoliza= $numPoliza, dniTitular= $dniTitular, importe=$importe)"
     }
 
     override fun hashCode(): Int {

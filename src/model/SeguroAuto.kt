@@ -1,13 +1,61 @@
 package src.model
 
-class SeguroAuto(numPoliza: Int, dniTitular: String,importe : Double,val descripcion: String, val combustible: String, val tipoAuto : Auto, val tipoCobertura: String, val asistenciaCarretera: Boolean, val numPartes: Int) : Seguro(numPoliza,dniTitular,importe){
+class SeguroAuto : Seguro{
+
+    var descripcion: String = ""
+    var combustible: String = ""
+    var tipoAuto : Auto = Auto.MOTO
+    var tipoCobertura: String = ""
+    var asistenciaCarretera: Boolean = true
+    var numPartes: Int = 0
+
+    companion object{
+        private var numPolizasAuto : Int = 4000000
+    }
+
+    constructor(
+        dniTitular : String,
+        importe : Double,
+        descripcion: String,
+        combustible: String,
+        tipoAuto : Auto,
+        tipoCobertura: String,
+        asistenciaCarretera: Boolean,
+        numPartes: Int
+    ) : super(++numPolizasAuto,dniTitular,importe){
+        this.descripcion = descripcion
+        this.combustible = combustible
+        this.tipoAuto = tipoAuto
+        this.tipoCobertura = tipoCobertura
+        this.asistenciaCarretera = asistenciaCarretera
+        this.numPartes = numPartes
+    }
+
+    private constructor(
+        numPoliza : Int,
+        dniTitular : String,
+        importe : Double,
+        descripcion: String,
+        combustible: String,
+        tipoAuto : Auto,
+        tipoCobertura: String,
+        asistenciaCarretera: Boolean,
+        numPartes: Int
+    ) : super(numPoliza,dniTitular,importe){
+        this.descripcion = descripcion
+        this.combustible = combustible
+        this.tipoAuto = tipoAuto
+        this.tipoCobertura = tipoCobertura
+        this.asistenciaCarretera = asistenciaCarretera
+        this.numPartes = numPartes
+    }
 
     init {
         require(numPoliza > 400000)
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
-        var importeAuto : Double = obtenerImporte()
+        var importeAuto : Double = importe
         importeAuto *= interes
         return importeAuto
     }
