@@ -4,12 +4,10 @@ import src.model.Perfil.ADMIN
 import src.model.Perfil.CONSULTA
 import src.model.Perfil.GESTION
 
-enum class Riesgo {
-    BAJO,
-    MEDIO,
-    ALTO;
-
-    val interesAplicado : List<Double> = (2.0,5.0,10.0)
+enum class Riesgo(interesAplicado : Double) {
+    BAJO(2.0),
+    MEDIO(5.0),
+    ALTO(10.0);
 
     companion object {
         fun getRiesgo(valor: String) : Riesgo{

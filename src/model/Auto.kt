@@ -1,9 +1,4 @@
 package src.model
-
-import src.model.Perfil.ADMIN
-import src.model.Perfil.CONSULTA
-import src.model.Perfil.GESTION
-
 enum class Auto {
     COCHE,
     MOTO,

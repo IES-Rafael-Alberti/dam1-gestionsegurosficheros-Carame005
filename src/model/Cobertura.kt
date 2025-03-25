@@ -1,17 +1,12 @@
 package src.model
-
-import src.model.Perfil.ADMIN
-import src.model.Perfil.CONSULTA
-import src.model.Perfil.GESTION
-
-enum class Cobertura {
-    TERCEROS,
-    TERCEROS_AMPLIADO,
-    FRANQUICIA_200,
-    FRANQUICIA_300,
-    FRANQUICIA_400,
-    FRANQUICIA_500,
-    TODO_RIESGO;
+enum class Cobertura(desc : String) {
+    TERCEROS("Tercero"),
+    TERCEROS_AMPLIADO("Terceros +"),
+    FRANQUICIA_200("Todo Riesgo con Franquicia de 200€"),
+    FRANQUICIA_300("Todo Riesgo con Franquicia de 300€"),
+    FRANQUICIA_400("Todo Riesgo con Franquicia de 400€"),
+    FRANQUICIA_500("Todo Riesgo con Franquicia de 500€"),
+    TODO_RIESGO("Todo Riesgo");
 
     val desc = ("Terceros, Terceros +, Todo Riesgo con Franquicia de 200€, ... , Todo Riesgo")
 

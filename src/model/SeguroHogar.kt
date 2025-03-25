@@ -12,10 +12,10 @@ class SeguroHogar(numPoliza: Int, dniTitular: String,importe : Double, val metro
     }
 
     override fun tipoSeguro(): String {
-        return "Seguro Hogar"
+        return this::class.simpleName ?: "Desconocido"
     }
 
-    override fun serializar(): String {
-        return "$numPoliza;$dniTitular;${calcularImporteAnioSiguiente(interes = 0.0)};$metrosCuadrados;$valorContenido;$direccion;${tipoSeguro()}"
+    override fun serializar(separador : String): String {
+        return super.toString() + separador + metrosCuadrados+ separador + separador + valorContenido + separador + direccion + separador + tipoSeguro()
     }
 }

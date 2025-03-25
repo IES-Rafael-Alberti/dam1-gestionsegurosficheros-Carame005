@@ -1,4 +1,5 @@
 package src.model
+import java.time.LocalDate
 
 class SeguroVida(numPoliza: Int, dniTitular: String, importe : Double, val fechaNac: String, val nivelRiesgo: Riesgo, val indemnizacion: Double ) : Seguro(numPoliza,dniTitular,importe) {
 
@@ -13,10 +14,10 @@ class SeguroVida(numPoliza: Int, dniTitular: String, importe : Double, val fecha
     }
 
     override fun tipoSeguro(): String {
-        return "Seguro Vida"
+        return this::class.simpleName ?: "Desconocido"
     }
 
-    override fun serializar(): String {
-        return "$numPoliza,$dniTitular,${calcularImporteAnioSiguiente(0.0)},$fechaNac,$nivelRiesgo, $indemnizacion, ${tipoSeguro()}"
+    override fun serializar(separador : String): String {
+        return super.toString()+ separador + fechaNac + separador + nivelRiesgo + separador + indemnizacion + separador + tipoSeguro()
     }
 }

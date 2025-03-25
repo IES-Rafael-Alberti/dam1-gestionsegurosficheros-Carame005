@@ -14,12 +14,11 @@ abstract class Seguro(val numPoliza: Int, val dniTitular: String,private val imp
 
     abstract fun calcularImporteAnioSiguiente(interes: Double): Double
     abstract fun tipoSeguro(): String
-    abstract fun serializar(): String //Convierte el objeto a formato TXT
 
     fun obtenerImporte() = importe
 
     override fun serializar(separador: String): String {
-        TODO("Not yet implemented")
+        return numPoliza.toString() + separador + dniTitular + separador + importe + separador
     }
 
     override fun toString(): String {
