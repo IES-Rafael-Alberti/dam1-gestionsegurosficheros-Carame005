@@ -1,0 +1,23 @@
+APP se encarga del flujo del programa.
+
+Una clase llamada ControlAcceso(Intentar autentificar usurio y si no existe pregunta si quiere crearlo)(ui)<--(Fichero,Seguridad)
+Una clase llamada CargaInicial(Carga los Seguros)(ui)
+GestorMenu
+
+UI
+Es la interfaz con la que el usuario interactua
+
+SERVICE--->(DATA)
+Gestor de Usuarios(repostorio)
+Gestor de Seguros(repositorio)
+
+DATA
+RepoUsuarioMemoria : IRepoUsuarios heredado de RepoUsuarioFichero
+Lo mismo con RepoSeguro : IRepoSeguros heredado de RepoSeguroFichero
+
+SERVICE<--MODEL--->DATA
+Alberga los Enum, los Seguros y subclases y los Usuarios
+
+Utils
+Fichero
+Seguridad
