@@ -1,17 +1,20 @@
 package src.model
 
-class Usuario(public val nombre : String, public val clave : Int, public val perfil : String) : IExportable {
+class Usuario(public val nombre : String, public var clave : String, public val perfil : Perfil) : IExportable {
     companion object{
-        fun crearUsuario(datos){
-            return Usuario(datos)
+        fun crearUsuario(datos : List<String>) : Usuario{
+            val datosnombre = datos[0]
+            val datosclave = datos[1]
+            val datosperfil = datos[2]
+            return Usuario(datosnombre,datosclave,datosperfil)
         }
     }
 
-    fun cambiarClave(){
-
+    fun cambiarClave(nuevaClaveEncriptada : String){
+        clave = nuevaClaveEncriptada
     }
 
     override fun serializar(separador: String): String {
-        TODO("Not yet implemented")
+        return nombre.toString() + separador + clave + separador + perfil + separador
     }
 }

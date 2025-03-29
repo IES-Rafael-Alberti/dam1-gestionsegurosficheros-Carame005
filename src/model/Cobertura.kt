@@ -8,8 +8,6 @@ enum class Cobertura(desc : String) {
     FRANQUICIA_500("Todo Riesgo con Franquicia de 500€"),
     TODO_RIESGO("Todo Riesgo");
 
-    val desc = ("Terceros, Terceros +, Todo Riesgo con Franquicia de 200€, ... , Todo Riesgo")
-
     companion object {
         fun getCobertura(valor: String) : Cobertura{
             if (valor.lowercase() == "terceros_ampliado"){
