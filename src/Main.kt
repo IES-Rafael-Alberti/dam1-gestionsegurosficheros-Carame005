@@ -1,11 +1,11 @@
 package src
 import src.model.SeguroHogar
 import src.model.SeguroAuto
-import src.data.RepoSeguros
+import src.data.RepoSegurosMem
 
 fun main() {
     val archivo = "Seguros.txt"
-    val repo = RepoSeguros(archivo, mapaSeguros)
+    val repo = RepoSegurosMem(archivo, mapaSeguros)
 
     // Crear seguros y guardarlos
     val seguroHogar = SeguroHogar(1, "12345678A", 101, 500.0, 80, 150000.0, "Calle Mayor, 12")

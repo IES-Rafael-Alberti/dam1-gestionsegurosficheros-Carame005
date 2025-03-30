@@ -3,7 +3,7 @@ package src.data
 import src.model.Seguro
 import java.io.File
 
-class RepoSegurosFich {
+class RepoSegurosFich : RepoSegurosMem() {
     // Guardar un seguro en el fichero
     fun guardarSeguro(seguro: Seguro) {
         File(archivo).appendText(seguro.serializar() + "\n")

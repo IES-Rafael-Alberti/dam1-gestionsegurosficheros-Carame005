@@ -1,8 +1,7 @@
 package src.data
 import src.model.Seguro
-import src.model.Usuario
 
-open class RepoSeguros(private val archivo: String, private val mapaSeguros: Map<String, (List<String>) -> Seguro>) : IRepoSeguros {
+open class RepoSegurosMem : IRepoSeguros {
     private val seguros = mutableListOf<Seguro>()
 
     override fun agregar(seguro: Seguro): Boolean {
