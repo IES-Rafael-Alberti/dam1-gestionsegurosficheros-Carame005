@@ -1,4 +1,5 @@
-package src.ui
+package src.app
+
 import src.utils.Utilidades
 
 class MenuAdmin : IMenu {

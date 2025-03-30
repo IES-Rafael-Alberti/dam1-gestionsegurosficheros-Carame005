@@ -1,16 +1,31 @@
 package src.ui
 
+import jdk.internal.org.jline.reader.EndOfFileException
+import jdk.internal.org.jline.reader.LineReaderBuilder
+import jdk.internal.org.jline.reader.UserInterruptException
+import jdk.internal.org.jline.terminal.TerminalBuilder
+
 class Consola : IEntradaSalida {
     override fun mostrar(msj: String, salto: Boolean, pausa: Boolean) {
         println(msj)
+        if (salto == true){
+            println("\n")
+        }
+        if (pausa == true){
+            readln()
+        }
     }
 
     override fun mostrarError(msj: String, pausa: Boolean) {
-        TODO("Not yet implemented")
+        println(msj)
+        if(pausa == true){
+            readln()
+        }
     }
 
     override fun pedirInfo(msj: String): String {
-        TODO("Not yet implemented")
+        println(msj)
+        return readln().toString()
     }
 
     override fun pedirInfo(
@@ -35,7 +50,8 @@ class Consola : IEntradaSalida {
         errorConv: String,
         debeCumplir: (Double) -> Boolean
     ): Double {
-        return readln().toDouble()
+        val double = readln().toDoubleOrNull()
+        require(double == Double?)
     }
 
     override fun pedirEntero(
@@ -48,7 +64,26 @@ class Consola : IEntradaSalida {
     }
 
     override fun pedirInfoOculta(prompt: String): String {
-        println(prompt)
+        return try {
+            val terminal = TerminalBuilder.builder()
+                .dumb(true) // Para entornos no interactivos como IDEs
+                .build()
+
+            val reader = LineReaderBuilder.builder()
+                .terminal(terminal)
+                .build()
+
+            reader.readLine(prompt, '*') // Oculta la contraseña con '*'
+        } catch (e: UserInterruptException) {
+            mostrarError("Entrada cancelada por el usuario (Ctrl + C).", pausa = false)
+            ""
+        } catch (e: EndOfFileException) {
+            mostrarError("Se alcanzó el final del archivo (EOF ó Ctrl+D).", pausa = false)
+            ""
+        } catch (e: Exception) {
+            mostrarError("Problema al leer la contraseña: ${e.message}", pausa = false)
+            ""
+        }
     }
 
     override fun pausar(msj: String) {
@@ -57,11 +92,23 @@ class Consola : IEntradaSalida {
     }
 
     override fun limpiarPantalla(numSaltos: Int) {
-        repeat(numSaltos) { println() }
+        if (System.console() != null) {
+            mostrar("\u001b[H\u001b[2J", false)
+            System.out.flush()
+        } else {
+            repeat(numSaltos) {
+                mostrar("")
+            }
+        }
     }
 
     override fun preguntar(mensaje: String): Boolean {
         println(mensaje)
+        var respuesta = readln().toString()
+        while (respuesta.lowercase() != "s" || respuesta.lowercase() != "n"){
+            println("Escriba una respuesta valida")
+            respuesta = readln().toString()
+        }
         return true
     }
 }
