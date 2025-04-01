@@ -1,5 +1,7 @@
 # Práctica Gestión de Seguros con Ficheros
 
+[Código pasado a Gradle](https://github.com/IES-Rafael-Alberti/pruebagradleopenjdk21-Carame005.git)
+
 Aquí tenéis el enlace al enunciado: [Enunciado de la práctica PRO2425 - Gestión de Seguros](https://github.com/dcanoIESRafaelAlberti/PRO2425_Seguros/blob/main/README.md)
 
 * Os dejo un enlace para yo poder modificarla estos días y así que la tengáis actualizada.
